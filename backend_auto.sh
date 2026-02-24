@@ -29,10 +29,10 @@ echo "Enter DATABASE_URL:"
 read DATABASE_URL
 
 echo "Creating .env file..."
-echo "DATABASE_URL=$DATABASE_URL" > .env
+echo "DATABASE_URL=$DATABASE_URL" > .env.local
 
 echo "Running database initialization..."
-python app/init_db.py
+python -m app.init_db
 
 echo "Removing default nginx configs..."
 sudo rm -f /etc/nginx/sites-enabled/default
@@ -87,4 +87,5 @@ echo "✔ Database initialized"
 echo "✔ Nginx configured"
 echo "✔ Backend started on 127.0.0.1:8000"
 echo "======================================"
+
 echo "Backend setup complete!"
